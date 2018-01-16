@@ -24,3 +24,10 @@ To copy the built binary to the storage run the command:
 make release
 ```
 
+### Running the exporter:
+The exporter can be run by passing the the RPC username, password and host to the binary like so:
+
+```bash
+BTC_USER=btcuser BTC_PASS=btcpass BTC_HOST=127.0.0.1:8332
+```
+
