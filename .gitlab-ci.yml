@@ -1,0 +1,12 @@
+stages:
+  - build
+  - release
+build-binary:
+  stage: build
+  image: 'golang:1.9.2-stretch'
+  variables:
+    GOOS: linux
+    GOARCH: amd64
+  script:
+    - make deps
+    - make
