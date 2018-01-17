@@ -7,6 +7,9 @@ build-binary:
   variables:
     GOOS: linux
     GOARCH: amd64
+    GOPATH: /opt/go
   script:
+    - mkdir -p $GOPATH/src
     - make deps
+    - cp -r vendor/* $GOPATH/src
     - make
