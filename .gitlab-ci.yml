@@ -13,3 +13,7 @@ build-binary:
     - make deps
     - cp -r vendor/* $GOPATH/src
     - make
+    - make release
+  artifacts:
+    paths:
+      - bitcoind_exporter.tar.gz

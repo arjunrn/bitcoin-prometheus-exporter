@@ -25,5 +25,7 @@ clean:
 
 release:
 	$(TARCOMPRESS) $(ARCHIVE_NAME) $(BINARY_NAME)
+
+upload:
 	$(GSUTILCP) $(ARCHIVE_NAME) $(GSDEST)
 
