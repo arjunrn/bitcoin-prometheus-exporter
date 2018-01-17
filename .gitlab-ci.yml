@@ -3,7 +3,7 @@ stages:
   - release
 build-binary:
   stage: build
-  image: 'golang:1.9.2-stretch'
+  image: 'registry.office.cubits.com:5000/golang-build:v0.1'
   variables:
     GOOS: linux
     GOARCH: amd64
