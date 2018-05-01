@@ -19,6 +19,15 @@ func getEnv(name string) string {
 	panic(fmt.Sprintf("Missing environment variable: %s", name))
 }
 
+func getEnvDefault(name string, defaultVal string) string {
+	envValue, ok := os.LookupEnv(name)
+	if ok {
+		return envValue
+	} else {
+		return defaultVal
+	}
+}
+
 func setGauge(name string, help string, callback func() float64) {
 	gaugeFunc := prometheus.NewGaugeFunc(prometheus.GaugeOpts{
 		Namespace: "bitcoind",
@@ -35,6 +44,7 @@ func main() {
 	btcUser := getEnv("BTC_USER")
 	btcPass := getEnv("BTC_PASS")
 	btcHost := getEnv("BTC_HOST")
+	listendAddr := getEnvDefault("HTTP_LISTENADDR", ":8080")
 	config := &rpcclient.ConnConfig{
 		Host:         btcHost,
 		User:         btcUser,
@@ -70,5 +80,5 @@ func main() {
 	})
 	http.Handle("/metrics", promhttp.Handler())
 	logrus.Info("Now listening on 8080")
-	logrus.Fatal(http.ListenAndServe(":8080", nil))
+	logrus.Fatal(http.ListenAndServe(listendAddr, nil))
 }

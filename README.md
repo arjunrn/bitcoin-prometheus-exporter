@@ -30,4 +30,3 @@ The exporter can be run by passing the the RPC username, password and host to th
 ```bash
 BTC_USER=btcuser BTC_PASS=btcpass BTC_HOST=127.0.0.1:8332
 ```
-
