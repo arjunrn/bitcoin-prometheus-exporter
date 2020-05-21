@@ -1,4 +1,4 @@
-vendor/
 bitcoind_exporter
 bitcoind_exporter.tar.gz
 bitcoind-prometheus-exporter
+bitcoin-prometheus-exporter
